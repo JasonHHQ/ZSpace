@@ -6,7 +6,13 @@
 </template>
 <script>
 	export default{
-		props:['color', 'colorArray'],
+		props: {
+			color: String,
+			colorArray: {
+				type: Array,
+				default: ['blue', ]
+			}
+		},
 		methods:{
 			changecolor(){
 				this.color = 'yellow'
