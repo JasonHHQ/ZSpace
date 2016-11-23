@@ -5,17 +5,37 @@
 		    <img src="../assets/logo.png" width=30 height=30>
 		    <h3>Test page</h3>
 	    </div>
-		<div class="test-list">
-			<ul>
-				<li v-for="(page,index) in testPage">
-					<a @click="">Test {{page}}</a>
-				</li>
-			</ul>
-		</div>
+			<div class="test-list" :style="{width:TestListWidth + 'px'}">
+				<ul>
+					<li v-for="(page,index) in testPage" 
+							@click="TestListClick(index)" 
+							:class="{active:isactive[index]}">
+						<a >Test {{page}}</a>
+					</li>
+				</ul>
+			</div>
     </div>
     <div class="test-body">
-			<test-body1></test-body1>
-			<test-body2 :todo="work"></test-body2>
+    	<ul>
+    		<li :class="{active:isactive[0]}">
+    			<!-- basic example -->
+    			<!-- v-for , v-if , v-on, v-bind -->
+    			<test-body1></test-body1>
+  			</li>
+    		<li :class="{active:isactive[1]}">
+    			<!-- this is a wrong example for Props-->
+    			<!-- http://cn.vuejs.org/v2/guide/components.html#单向数据流 -->
+    			<test-body2 :color="color" :color-array="colorArray" :style="{color:colorArray[0]}"></test-body2>
+  			</li>
+    		<li :class="{active:isactive[2]}">
+    			<!-- example for Key Modifiers -->
+    			<!-- http://cn.vuejs.org/v2/guide/events.html#按键修饰符 -->
+    			<test-body3></test-body3>
+  			</li>
+    		<li :class="{active:isactive[3]}">
+    			<test-body4></test-body4>
+  			</li>
+    	</ul>
 		</div>
   </div>
 </template>
@@ -23,17 +43,33 @@
 <script>
 import TestBody1 from '../components/TestBody1'
 import TestBody2 from '../components/TestBody2'
+import TestBody3 from '../components/TestBody3'
+import TestBody4 from '../components/TestBody4'
 
 export default{
 	name: 'test',
 	data(){
 		return {
-			testPage: 2,
-			work: 'walking'
+			testPage: 5,
+			isactive: [true, ],
+			work: 'walking',
+			color: 'red',
+			colorArray: ['blue', 'green']
+		}
+	},
+	computed:{
+		TestListWidth(){
+			return 100*this.testPage
 		}
 	},
 	components: {
-		TestBody1, TestBody2
+		TestBody1, TestBody2, TestBody3, TestBody4
+	},
+	methods:{
+		TestListClick(index){
+			this.isactive = [false, ]
+			this.isactive[index]=true
+		}
 	}
 }
 
@@ -75,27 +111,36 @@ export default{
   top: 0;
   left: 0;
   right: 0;
-  width: 200px;
   margin: 0 auto;
   font-size: 1.1em;
   font-weight: bold;
   text-align: center;
 }
-.test-list li {
+.test-list>ul>li {
 	float: left;
 	width: 100px;
 	list-style: none;
 }
-.test-list li.active, {
+.test-list>ul>li.active,
+.test-list>ul>li:hover {
 	background: #42b884;
 	color: #fff;
 }
-.test-list li:hover {
-	background: #516274;
-	color: #fff;
+.test-list>ul>li:hover {
+	opacity: 0.4;
 }
-.test-list li a {
+.test-list>ul>li>a {
 	text-decoration: none;
 	color: inherit;
+}
+.test-body{
+	padding: 20px;
+}
+.test-body>ul>li{
+	display: none;
+	list-style: none;
+}
+.test-body>ul>li.active{
+	display: block;
 }
 </style>

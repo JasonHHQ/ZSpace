@@ -16,8 +16,16 @@ const app = new Vue({
   },
   render (h) {
     return h(this.ViewComponent)
+  },
+  config:{
+    keyCodes:{
+      v: 86,
+      f2: 113
+    }
   }
 })
+
+
 
 window.addEventListener('popstate', () => {
   app.currentRoute = window.location.pathname

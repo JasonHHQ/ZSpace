@@ -1,13 +1,13 @@
 <template >
 	<ul><li	v-for="(item,index) in items">
 	  <a v-on:click="changecolor(index)">
-		  <h1 v-if="!item.ishide">
-		  	{{index+1}}. 
+		  {{index+1}}. 
+		  <h3 v-if="!item.ishide">
 		  	<span v-bind:style="{color: item.color}">
 		  		Hello
 		  	</span> 
 		  	world!
-		  </h1>
+		  </h3>
 	  </a>
   </li></ul>
 </template>
@@ -49,8 +49,9 @@ export default{
 </script>
 
 <style>
-h1{
-	line-height: 80px;
+h3{
+	display: inline;
+	line-height: 60px;
 }
 a {
 	-webkit-user-select: none;
