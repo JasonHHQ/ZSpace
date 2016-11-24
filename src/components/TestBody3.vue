@@ -1,9 +1,9 @@
 <template>
-<div>
-	<ul>
-		<li v-for="n in even(this.numbers)">{{ n }}</li>
-	</ul>
-	<input type="text" @keyup.enter="addnewnumber" v-model="value">
+	<div>
+		<ul>
+			<li v-for="n in even(this.numbers)">{{ n }}</li>
+		</ul>
+		<input type="text" @keyup.enter="addnewnumber" v-model="value">
 	</div>
 </template>
 <script>
@@ -25,3 +25,6 @@
 		}
 	}
 </script>
+<style>
+	
+</style>

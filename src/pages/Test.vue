@@ -1,5 +1,6 @@
 <template>
   <div id="test">
+
     <div class="test-header">
 	    <div class="logo">
 		    <img src="../assets/logo.png" width=30 height=30>
@@ -33,7 +34,13 @@
     			<test-body3></test-body3>
   			</li>
     		<li :class="{active:isactive[3]}">
+    			<!-- example for form input binding -->
     			<test-body4></test-body4>
+  			</li>
+  			<li :class="{active:isactive[4]}">
+  				<!-- example for Form Input Components using Custom Events -->
+  				<!-- http://cn.vuejs.org/v2/guide/components.html#使用自定义事件的表单输入组件 -->
+    			<test-body5></test-body5>
   			</li>
     	</ul>
 		</div>
@@ -45,6 +52,7 @@ import TestBody1 from '../components/TestBody1'
 import TestBody2 from '../components/TestBody2'
 import TestBody3 from '../components/TestBody3'
 import TestBody4 from '../components/TestBody4'
+import TestBody5 from '../components/TestBody5'
 
 export default{
 	name: 'test',
@@ -63,7 +71,7 @@ export default{
 		}
 	},
 	components: {
-		TestBody1, TestBody2, TestBody3, TestBody4
+		TestBody1, TestBody2, TestBody3, TestBody4, TestBody5
 	},
 	methods:{
 		TestListClick(index){
@@ -134,6 +142,9 @@ export default{
 	color: inherit;
 }
 .test-body{
+  text-align: left;
+  width: 60%;
+  margin-left: 20%;
 	padding: 20px;
 }
 .test-body>ul>li{

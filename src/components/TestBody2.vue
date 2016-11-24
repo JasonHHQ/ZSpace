@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<h1 @click="changecolor">The color is: {{color}}</h1>
-		<h1 @click="changecolors">The color is: {{colorArray[0]}}</h1>
+		<h2 @click="changecolor">The color is: {{color}}</h2>
+		<h2 @click="changecolors">The color is: {{colorArray[0]}}</h2>
 	</div>
 </template>
 <script>
