@@ -17,6 +17,8 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+    <h2>Examples<span class="added">(added by Jason)</span></h2>
+    <a href="/test">Test Page</a>
   </div>
 </template>
 
@@ -36,7 +38,12 @@ export default {
 h1, h2 {
   font-weight: normal;
 }
-
+.added {
+  position: absolute;
+  font-size: 0.5em;
+  margin-top: 0.8em;
+  margin-left: 0.5em;
+}
 ul {
   list-style-type: none;
   padding: 0;

@@ -8,10 +8,12 @@
 </template>
 <script>
 	export default{
-		data(){ return {
-			value:'',
-		  numbers: [ 1, 2, 3, 4, 5 ]
-		}},
+		data(){ 
+			return {
+				value:'',
+			  numbers: [ 1, 2, 3, 4, 5 ]
+			}
+		},
 		methods:{
 			even: function () {
 		    return this.numbers.filter(function (number) {
