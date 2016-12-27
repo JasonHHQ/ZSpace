@@ -1,28 +1,26 @@
 <template>
   <div id="test">
-
-    <div class="test-header">
-	    <div class="logo">
+	  <div class="test-header">
+	    <a class="logo" href="/">
 		    <img src="../assets/logo.png" width=30 height=30>
 		    <h3>Test page</h3>
-	    </div>
+	    </a>
 			<div class="test-list"
-
 				:style="{width:TestListWidth + 'px'}"
 				@wheel.prevent="wheel($event)">
 				<ul :style="{width:TestListWidth + 'px'}">
 					<li v-for="(page,index) in testPage"
-							@click="TestListClick(index)"
-							:class="{active:isactive[index]}">
-						<a >Test {{page}}</a>
+						@click="TestListClick(index)"
+						:class="{active:isactive[index]}">
+						<a>Test {{page}}</a>
 					</li>
 				</ul>
 			</div>
-    </div>
-    <div class="test-body" >
+	  </div>
+	  <div class="test-body" >
 			<transition name="component-fade" mode="out-in">
 				<keep-alive>
-				  <component v-bind:is="currentTestPage">
+				 	<component v-bind:is="currentTestPage">
 						<!-- 非活动组件将被缓存！ -->
 					</component>
 	    	</keep-alive>
@@ -118,12 +116,22 @@ export default{
 	height: 49px;
 	line-height: 50px;
 
-  -webkit-user-select: none;
-  user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
 }
-.test-header img {
+.test-header .logo {
+  display: flex;
+  margin: 0 15px;
+  text-decoration: none;
+  outline: none;
+  color: inherit;
+}
+.test-header .logo img {
 	float: left;
 	margin: 10px;
+}
+.test-header .logo h3{
+	line-height: 50px;
 }
 .test-list {
   position: absolute;
@@ -136,7 +144,7 @@ export default{
   font-size: 1.1em;
   font-weight: bold;
   text-align: center;
-  overflow: auto;
+  overflow: hidden;
 }
 .test-list>ul>li {
 	float: left;
@@ -164,11 +172,18 @@ export default{
 
 
 /*name 为 component-fade 的组件进出过渡动画*/
-.component-fade-enter-active, .component-fade-leave-active {
-  transition: opacity .5s ease-out, transform .5s ease-out;
+.component-fade-enter-active {
+  transition: opacity 1s ease-out, transform .5s ease-out;
 }
-.component-fade-enter, .component-fade-leave-active {
+.component-fade-leave-active {
+  transition: opacity .3s ease-out, transform .5s ease-out;
+}
+.component-fade-enter {
   opacity: 0;
-  transform: translateX(-100px);
+  transform: translateY(-100px);
+}
+.component-fade-leave-active {
+  opacity: 0;
+  transform: translateY(200px);
 }
 </style>

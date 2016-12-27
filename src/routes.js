@@ -1,4 +1,5 @@
 export default {
   '/': 'App',
-  '/test': 'Test'
+  '/test': 'Test',
+  '/elment': 'Element'
 }

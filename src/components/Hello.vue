@@ -18,7 +18,11 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
     <h2>Examples<span class="added">(added by Jason)</span></h2>
-    <a href="/test">Test Page</a>
+    <ul>
+      <li><a href="/test">Test Page</a></li>
+      <li><a href="/elment">Element Example</a></li>
+    </ul>
+   
   </div>
 </template>
 
